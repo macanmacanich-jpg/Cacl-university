@@ -1,9 +1,12 @@
 [
   {
-    "name": "Charles University",
-    "country": "Czech Republic",
-    "city": "Prague",
-    "fields": ["Medicine", "Law", "Natural Sciences"],
+    "name": "Карлов университет",
+    "country": "Чехия",
+    "city": "Прага",
+    "fields": [
+      "Медицина",
+      "Юриспруденция"
+    ],
     "ielts_min": 6.5,
     "gpa_min": 3.2,
     "tuition_usd": 0,
@@ -11,10 +14,13 @@
     "url": "https://www.cuni.cz/UKEN-1.html"
   },
   {
-    "name": "Technical University of Munich (TUM)",
-    "country": "Germany",
-    "city": "Munich",
-    "fields": ["Engineering", "Computer Science"],
+    "name": "Технический университет Мюнхена (TUM)",
+    "country": "Германия",
+    "city": "Мюнхен",
+    "fields": [
+      "Инженерия",
+      "Компьютерные науки"
+    ],
     "ielts_min": 6.5,
     "gpa_min": 3.5,
     "tuition_usd": 0,
@@ -23,20 +29,26 @@
   },
   {
     "name": "RWTH Aachen University",
-    "country": "Germany",
-    "city": "Aachen",
-    "fields": ["Engineering", "Computer Science"],
-    "ielts_min": 6.0,
+    "country": "Германия",
+    "city": "Аахен",
+    "fields": [
+      "Инженерия",
+      "Компьютерные науки"
+    ],
+    "ielts_min": 6,
     "gpa_min": 3.3,
     "tuition_usd": 0,
     "scholarship": false,
     "url": "https://www.rwth-aachen.de"
   },
   {
-    "name": "Budapest University of Technology and Economics",
-    "country": "Hungary",
-    "city": "Budapest",
-    "fields": ["Engineering", "Computer Science"],
+    "name": "Будапештский технологический университет",
+    "country": "Венгрия",
+    "city": "Будапешт",
+    "fields": [
+      "Инженерия",
+      "Компьютерные науки"
+    ],
     "ielts_min": 5.5,
     "gpa_min": 2.8,
     "tuition_usd": 4000,
@@ -44,10 +56,13 @@
     "url": "https://www.bme.hu/?language=en"
   },
   {
-    "name": "University of Helsinki",
-    "country": "Finland",
-    "city": "Helsinki",
-    "fields": ["Computer Science", "Medicine"],
+    "name": "Хельсинкский университет",
+    "country": "Финляндия",
+    "city": "Хельсинки",
+    "fields": [
+      "Компьютерные науки",
+      "Медицина"
+    ],
     "ielts_min": 6.5,
     "gpa_min": 3.4,
     "tuition_usd": 0,
@@ -55,10 +70,13 @@
     "url": "https://www.helsinki.fi/en"
   },
   {
-    "name": "Delft University of Technology",
-    "country": "Netherlands",
-    "city": "Delft",
-    "fields": ["Engineering", "Computer Science"],
+    "name": "Делфтский технический университет",
+    "country": "Нидерланды",
+    "city": "Делфт",
+    "fields": [
+      "Инженерия",
+      "Компьютерные науки"
+    ],
     "ielts_min": 6.5,
     "gpa_min": 3.5,
     "tuition_usd": 18000,
@@ -66,32 +84,45 @@
     "url": "https://www.tudelft.nl/en/"
   },
   {
-    "name": "University of Groningen",
-    "country": "Netherlands",
-    "city": "Groningen",
-    "fields": ["Economics", "Business", "Law"],
-    "ielts_min": 6.0,
-    "gpa_min": 3.0,
+    "name": "Гронингенский университет",
+    "country": "Нидерланды",
+    "city": "Гронинген",
+    "fields": [
+      "Экономика",
+      "Бизнес",
+      "Юриспруденция"
+    ],
+    "ielts_min": 6,
+    "gpa_min": 3,
     "tuition_usd": 14000,
     "scholarship": true,
     "url": "https://www.rug.nl/"
   },
   {
-    "name": "University of Vienna",
-    "country": "Austria",
-    "city": "Vienna",
-    "fields": ["Law", "Economics", "Computer Science"],
-    "ielts_min": 6.0,
-    "gpa_min": 3.0,
+    "name": "Венский университет",
+    "country": "Австрия",
+    "city": "Вена",
+    "fields": [
+      "Юриспруденция",
+      "Экономика",
+      "Компьютерные науки"
+    ],
+    "ielts_min": 6,
+    "gpa_min": 3,
     "tuition_usd": 800,
     "scholarship": false,
     "url": "https://www.univie.ac.at/en/"
   },
   {
-    "name": "University of Toronto",
-    "country": "Canada",
-    "city": "Toronto",
-    "fields": ["Computer Science", "Engineering", "Medicine", "Business"],
+    "name": "Университет Торонто",
+    "country": "Канада",
+    "city": "Торонто",
+    "fields": [
+      "Компьютерные науки",
+      "Инженерия",
+      "Медицина",
+      "Бизнес"
+    ],
     "ielts_min": 6.5,
     "gpa_min": 3.6,
     "tuition_usd": 45000,
@@ -99,10 +130,13 @@
     "url": "https://www.utoronto.ca/"
   },
   {
-    "name": "University of Waterloo",
-    "country": "Canada",
-    "city": "Waterloo",
-    "fields": ["Computer Science", "Engineering"],
+    "name": "Университет Ватерлоо",
+    "country": "Канада",
+    "city": "Ватерлоо",
+    "fields": [
+      "Компьютерные науки",
+      "Инженерия"
+    ],
     "ielts_min": 6.5,
     "gpa_min": 3.5,
     "tuition_usd": 38000,
@@ -110,10 +144,14 @@
     "url": "https://uwaterloo.ca/"
   },
   {
-    "name": "Australian National University",
-    "country": "Australia",
-    "city": "Canberra",
-    "fields": ["Computer Science", "Economics", "Law"],
+    "name": "Австралийский национальный университет",
+    "country": "Австралия",
+    "city": "Канберра",
+    "fields": [
+      "Компьютерные науки",
+      "Экономика",
+      "Юриспруденция"
+    ],
     "ielts_min": 6.5,
     "gpa_min": 3.4,
     "tuition_usd": 35000,
@@ -121,10 +159,14 @@
     "url": "https://www.anu.edu.au/"
   },
   {
-    "name": "Eötvös Loránd University (ELTE)",
-    "country": "Hungary",
-    "city": "Budapest",
-    "fields": ["Computer Science", "Law", "Economics"],
+    "name": "Университет Этвёша Лоранда (ELTE)",
+    "country": "Венгрия",
+    "city": "Будапешт",
+    "fields": [
+      "Компьютерные науки",
+      "Юриспруденция",
+      "Экономика"
+    ],
     "ielts_min": 5.5,
     "gpa_min": 2.7,
     "tuition_usd": 5000,
@@ -132,11 +174,16 @@
     "url": "https://www.elte.hu/en/"
   },
   {
-    "name": "Masaryk University",
-    "country": "Czech Republic",
-    "city": "Brno",
-    "fields": ["Computer Science", "Medicine", "Economics", "Law"],
-    "ielts_min": 6.0,
+    "name": "Университет Масарика",
+    "country": "Чехия",
+    "city": "Брно",
+    "fields": [
+      "Компьютерные науки",
+      "Медицина",
+      "Экономика",
+      "Юриспруденция"
+    ],
+    "ielts_min": 6,
     "gpa_min": 2.9,
     "tuition_usd": 2000,
     "scholarship": false,
@@ -144,9 +191,12 @@
   },
   {
     "name": "FH Joanneum",
-    "country": "Austria",
-    "city": "Graz",
-    "fields": ["Engineering", "Computer Science"],
+    "country": "Австрия",
+    "city": "Грац",
+    "fields": [
+      "Инженерия",
+      "Компьютерные науки"
+    ],
     "ielts_min": 5.5,
     "gpa_min": 2.6,
     "tuition_usd": 1500,
