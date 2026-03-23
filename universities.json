@@ -1,0 +1,156 @@
+[
+  {
+    "name": "Charles University",
+    "country": "Czech Republic",
+    "city": "Prague",
+    "fields": ["Medicine", "Law", "Natural Sciences"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.2,
+    "tuition_usd": 0,
+    "scholarship": true,
+    "url": "https://www.cuni.cz/UKEN-1.html"
+  },
+  {
+    "name": "Technical University of Munich (TUM)",
+    "country": "Germany",
+    "city": "Munich",
+    "fields": ["Engineering", "Computer Science"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.5,
+    "tuition_usd": 0,
+    "scholarship": true,
+    "url": "https://www.tum.de/en/"
+  },
+  {
+    "name": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "fields": ["Engineering", "Computer Science"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.3,
+    "tuition_usd": 0,
+    "scholarship": false,
+    "url": "https://www.rwth-aachen.de"
+  },
+  {
+    "name": "Budapest University of Technology and Economics",
+    "country": "Hungary",
+    "city": "Budapest",
+    "fields": ["Engineering", "Computer Science"],
+    "ielts_min": 5.5,
+    "gpa_min": 2.8,
+    "tuition_usd": 4000,
+    "scholarship": true,
+    "url": "https://www.bme.hu/?language=en"
+  },
+  {
+    "name": "University of Helsinki",
+    "country": "Finland",
+    "city": "Helsinki",
+    "fields": ["Computer Science", "Medicine"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.4,
+    "tuition_usd": 0,
+    "scholarship": true,
+    "url": "https://www.helsinki.fi/en"
+  },
+  {
+    "name": "Delft University of Technology",
+    "country": "Netherlands",
+    "city": "Delft",
+    "fields": ["Engineering", "Computer Science"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.5,
+    "tuition_usd": 18000,
+    "scholarship": true,
+    "url": "https://www.tudelft.nl/en/"
+  },
+  {
+    "name": "University of Groningen",
+    "country": "Netherlands",
+    "city": "Groningen",
+    "fields": ["Economics", "Business", "Law"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.0,
+    "tuition_usd": 14000,
+    "scholarship": true,
+    "url": "https://www.rug.nl/"
+  },
+  {
+    "name": "University of Vienna",
+    "country": "Austria",
+    "city": "Vienna",
+    "fields": ["Law", "Economics", "Computer Science"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.0,
+    "tuition_usd": 800,
+    "scholarship": false,
+    "url": "https://www.univie.ac.at/en/"
+  },
+  {
+    "name": "University of Toronto",
+    "country": "Canada",
+    "city": "Toronto",
+    "fields": ["Computer Science", "Engineering", "Medicine", "Business"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.6,
+    "tuition_usd": 45000,
+    "scholarship": true,
+    "url": "https://www.utoronto.ca/"
+  },
+  {
+    "name": "University of Waterloo",
+    "country": "Canada",
+    "city": "Waterloo",
+    "fields": ["Computer Science", "Engineering"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.5,
+    "tuition_usd": 38000,
+    "scholarship": true,
+    "url": "https://uwaterloo.ca/"
+  },
+  {
+    "name": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "fields": ["Computer Science", "Economics", "Law"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.4,
+    "tuition_usd": 35000,
+    "scholarship": true,
+    "url": "https://www.anu.edu.au/"
+  },
+  {
+    "name": "Eötvös Loránd University (ELTE)",
+    "country": "Hungary",
+    "city": "Budapest",
+    "fields": ["Computer Science", "Law", "Economics"],
+    "ielts_min": 5.5,
+    "gpa_min": 2.7,
+    "tuition_usd": 5000,
+    "scholarship": true,
+    "url": "https://www.elte.hu/en/"
+  },
+  {
+    "name": "Masaryk University",
+    "country": "Czech Republic",
+    "city": "Brno",
+    "fields": ["Computer Science", "Medicine", "Economics", "Law"],
+    "ielts_min": 6.0,
+    "gpa_min": 2.9,
+    "tuition_usd": 2000,
+    "scholarship": false,
+    "url": "https://www.muni.cz/en"
+  },
+  {
+    "name": "FH Joanneum",
+    "country": "Austria",
+    "city": "Graz",
+    "fields": ["Engineering", "Computer Science"],
+    "ielts_min": 5.5,
+    "gpa_min": 2.6,
+    "tuition_usd": 1500,
+    "scholarship": false,
+    "url": "https://www.fh-joanneum.at/en/"
+  }
+]

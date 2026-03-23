@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>UniSearch</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --tg-bg: var(--tg-theme-bg-color, #0d0d1a);
+      --tg-text: var(--tg-theme-text-color, #e8e6ff);
+      --tg-hint: var(--tg-theme-hint-color, #6860a0);
+      --tg-link: var(--tg-theme-link-color, #6c8fff);
+      --tg-btn: var(--tg-theme-button-color, #3d5afe);
+      --tg-btn-text: var(--tg-theme-button-text-color, #ffffff);
+      --tg-secondary: var(--tg-theme-secondary-bg-color, #13132a);
+      --accent: #4f7cff;
+      --accent2: #a855f7;
+      --surface: #12122299;
+      --border: #ffffff0f;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    html, body { height: 100%; overflow-x: hidden; }
+
+    body {
+      background: var(--tg-bg);
+      color: var(--tg-text);
+      font-family: 'Mulish', sans-serif;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #root { min-height: 100vh; }
+
+    .app {
+      min-height: 100vh;
+      padding: 0 0 env(safe-area-inset-bottom, 20px);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .mesh {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 80% 10%, #3d5afe18 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 10% 80%, #a855f714 0%, transparent 60%);
+    }
+
+    .screen {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 16px 16px 24px;
+      animation: fadeUp 0.35s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.94); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .back-btn {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--tg-text);
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+    .back-btn:active { background: #ffffff15; }
+
+    .progress-row {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .step-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--tg-hint);
+    }
+    .bar-bg {
+      height: 3px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 3px;
+      transition: width 0.45s cubic-bezier(.4,0,.2,1);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+
+    .question {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--tg-text);
+      margin-bottom: 6px;
+    }
+    .question-sub {
+      font-size: 13px;
+      color: var(--tg-hint);
+      margin-bottom: 22px;
+      font-weight: 300;
+    }
+
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+    .grid.single { grid-template-columns: 1fr; }
+    .grid.three { grid-template-columns: 1fr 1fr 1fr; }
+
+    .chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 12px;
+      cursor: pointer;
+      transition: all 0.18s;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .chip:active { transform: scale(0.97); }
+    .chip.sel {
+      background: linear-gradient(135deg, #3d5afe22, #a855f714);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent)44, inset 0 0 20px #3d5afe0a;
+    }
+    .chip-icon { font-size: 22px; }
+    .chip-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--tg-text);
+      line-height: 1.3;
+    }
+    .chip.sel .chip-label { color: #a0bfff; }
+
+    .chip-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 16px;
+      border-radius: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .chip-row:active { transform: scale(0.98); }
+    .chip-row.sel {
+      background: linear-gradient(135deg, #3d5afe22, #a855f714);
+      border-color: var(--accent);
+    }
+    .chip-row .chip-icon { font-size: 20px; }
+    .chip-row .chip-label { font-size: 14px; font-weight: 600; }
+    .chip-row .chip-desc { font-size: 12px; color: var(--tg-hint); font-weight: 300; margin-top: 1px; }
+    .chip-row-text { display: flex; flex-direction: column; }
+
+
+    .num-input-wrap {
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .num-input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 24px;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--tg-text);
+      outline: none;
+      text-align: center;
+      letter-spacing: 2px;
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .num-input::-webkit-inner-spin-button,
+    .num-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+    .num-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent)22;
+    }
+    .num-input.err { border-color: #ff5a6e; box-shadow: 0 0 0 3px #ff5a6e22; }
+    .error-msg { color: #ff5a6e; font-size: 12px; text-align: center; margin-top: 8px; }
+
+    .range-hint {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 4px;
+      margin-top: 10px;
+    }
+    .range-hint span { font-size: 11px; color: var(--tg-hint); }
+
+
+    .cta-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      border-radius: 14px;
+      padding: 17px;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      box-shadow: 0 6px 28px var(--accent)44;
+      transition: all 0.18s;
+      margin-top: 20px;
+    }
+    .cta-btn:active { transform: scale(0.98); box-shadow: 0 2px 12px var(--accent)33; }
+    .cta-btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
+
+
+    .results-hero {
+      text-align: center;
+      padding: 8px 0 28px;
+    }
+    .results-num {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 72px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .results-label {
+      font-size: 14px;
+      color: var(--tg-hint);
+      margin-top: 4px;
+      font-weight: 300;
+    }
+
+    .filter-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .ftag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--tg-hint);
+    }
+
+    .uni-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 10px;
+      animation: popIn 0.3s cubic-bezier(.22,1,.36,1) both;
+      transition: border-color 0.18s;
+    }
+    .uni-card:active { border-color: var(--accent)66; }
+
+    .uni-name {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--tg-text);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .uni-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 20px;
+      letter-spacing: 0.2px;
+    }
+    .b-loc  { background: #ffffff08; color: #8878c8; border: 1px solid #ffffff0c; }
+    .b-ielts { background: #3d5afe15; color: #7a9fff; border: 1px solid #3d5afe22; }
+    .b-gpa  { background: #00c37715; color: #4ddfaa; border: 1px solid #00c37722; }
+    .b-free { background: #00c37720; color: #3dffb0; border: 1px solid #00c37733; }
+    .b-cost { background: #ff8c0015; color: #ffb347; border: 1px solid #ff8c0022; }
+    .b-grant { background: #a855f715; color: #d580ff; border: 1px solid #a855f722; }
+
+    .uni-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--tg-link);
+      text-decoration: none;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+    .empty-icon { font-size: 52px; margin-bottom: 14px; }
+    .empty-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--tg-hint);
+      margin-bottom: 6px;
+    }
+    .empty-sub { font-size: 13px; color: var(--tg-hint); opacity: 0.6; font-weight: 300; }
+
+    .restart-btn {
+      display: block;
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 15px;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--tg-hint);
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.18s;
+      letter-spacing: 0.3px;
+    }
+    .restart-btn:active { background: #ffffff08; }
+
+    .spacer { flex: 1; }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const tg = window.Telegram?.WebApp;
+if (tg) {
+  tg.ready();
+  tg.expand();
+}
+
+const UNIS = [
+  { name: "Карлов университет", country: "Чехия", city: "Прага", fields: ["Медицина", "Юриспруденция"], ielts_min: 6.5, gpa_min: 3.2, tuition_usd: 0, scholarship: true, url: "https://www.cuni.cz/UKEN-1.html" },
+  { name: "Технический университет Мюнхена (TUM)", country: "Германия", city: "Мюнхен", fields: ["Инженерия", "Компьютерные науки"], ielts_min: 6.5, gpa_min: 3.5, tuition_usd: 0, scholarship: true, url: "https://www.tum.de/en/" },
+  { name: "RWTH Aachen University", country: "Германия", city: "Аахен", fields: ["Инженерия", "Компьютерные науки"], ielts_min: 6.0, gpa_min: 3.3, tuition_usd: 0, scholarship: false, url: "https://www.rwth-aachen.de" },
+  { name: "Будапештский технологический университет", country: "Венгрия", city: "Будапешт", fields: ["Инженерия", "Компьютерные науки"], ielts_min: 5.5, gpa_min: 2.8, tuition_usd: 4000, scholarship: true, url: "https://www.bme.hu/?language=en" },
+  { name: "Хельсинкский университет", country: "Финляндия", city: "Хельсинки", fields: ["Компьютерные науки", "Медицина"], ielts_min: 6.5, gpa_min: 3.4, tuition_usd: 0, scholarship: true, url: "https://www.helsinki.fi/en" },
+  { name: "Делфтский технический университет", country: "Нидерланды", city: "Делфт", fields: ["Инженерия", "Компьютерные науки"], ielts_min: 6.5, gpa_min: 3.5, tuition_usd: 18000, scholarship: true, url: "https://www.tudelft.nl/en/" },
+  { name: "Гронингенский университет", country: "Нидерланды", city: "Гронинген", fields: ["Экономика", "Бизнес", "Юриспруденция"], ielts_min: 6.0, gpa_min: 3.0, tuition_usd: 14000, scholarship: true, url: "https://www.rug.nl/" },
+  { name: "Венский университет", country: "Австрия", city: "Вена", fields: ["Юриспруденция", "Экономика", "Компьютерные науки"], ielts_min: 6.0, gpa_min: 3.0, tuition_usd: 800, scholarship: false, url: "https://www.univie.ac.at/en/" },
+  { name: "Университет Торонто", country: "Канада", city: "Торонто", fields: ["Компьютерные науки", "Инженерия", "Медицина", "Бизнес"], ielts_min: 6.5, gpa_min: 3.6, tuition_usd: 45000, scholarship: true, url: "https://www.utoronto.ca/" },
+  { name: "Университет Ватерлоо", country: "Канада", city: "Ватерлоо", fields: ["Компьютерные науки", "Инженерия"], ielts_min: 6.5, gpa_min: 3.5, tuition_usd: 38000, scholarship: true, url: "https://uwaterloo.ca/" },
+  { name: "Австралийский национальный университет", country: "Австралия", city: "Канберра", fields: ["Компьютерные науки", "Экономика", "Юриспруденция"], ielts_min: 6.5, gpa_min: 3.4, tuition_usd: 35000, scholarship: true, url: "https://www.anu.edu.au/" },
+  { name: "Университет Этвёша Лоранда (ELTE)", country: "Венгрия", city: "Будапешт", fields: ["Компьютерные науки", "Юриспруденция", "Экономика"], ielts_min: 5.5, gpa_min: 2.7, tuition_usd: 5000, scholarship: true, url: "https://www.elte.hu/en/" },
+  { name: "Университет Масарика", country: "Чехия", city: "Брно", fields: ["Компьютерные науки", "Медицина", "Экономика", "Юриспруденция"], ielts_min: 6.0, gpa_min: 2.9, tuition_usd: 2000, scholarship: false, url: "https://www.muni.cz/en" },
+  { name: "FH Joanneum", country: "Австрия", city: "Грац", fields: ["Инженерия", "Компьютерные науки"], ielts_min: 5.5, gpa_min: 2.6, tuition_usd: 1500, scholarship: false, url: "https://www.fh-joanneum.at/en/" },
+];
+
+const FIELDS = [
+  { label: "Компьютерные науки", icon: "⌨️" },
+  { label: "Медицина", icon: "🩺" },
+  { label: "Экономика", icon: "📊" },
+  { label: "Инженерия", icon: "⚙️" },
+  { label: "Юриспруденция", icon: "⚖️" },
+  { label: "Бизнес", icon: "💼" },
+];
+
+const COUNTRIES = [
+  { label: "Германия", icon: "🇩🇪" },
+  { label: "Чехия", icon: "🇨🇿" },
+  { label: "Венгрия", icon: "🇭🇺" },
+  { label: "Австрия", icon: "🇦🇹" },
+  { label: "Нидерланды", icon: "🇳🇱" },
+  { label: "Финляндия", icon: "🇫🇮" },
+  { label: "Канада", icon: "🇨🇦" },
+  { label: "Австралия", icon: "🇦🇺" },
+  { label: "Любая страна", icon: "🌍" },
+];
+
+const BUDGETS = [
+  { label: "Бесплатно", icon: "🆓", desc: "Только бюджетные программы", value: 0 },
+  { label: "До $5 000", icon: "💵", desc: "Бюджет или минимальная стоимость", value: 5000 },
+  { label: "До $15 000", icon: "💵", desc: "Средний ценовой диапазон", value: 15000 },
+  { label: "До $30 000", icon: "💵", desc: "Выше среднего", value: 30000 },
+  { label: "Любой бюджет", icon: "♾️", desc: "Показать все варианты", value: null },
+];
+
+function filterUnis(field, country, ielts, gpa, budgetVal) {
+  return UNIS.filter(u => {
+    if (!u.fields.includes(field)) return false;
+    if (country !== "Любая страна" && u.country !== country) return false;
+    if (ielts < u.ielts_min) return false;
+    if (gpa < u.gpa_min) return false;
+    if (budgetVal !== null && u.tuition_usd > budgetVal) return false;
+    return true;
+  });
+}
+
+function App() {
+  const [step, setStep] = useState(0);
+  const [animKey, setAnimKey] = useState(0);
+  const [field, setField] = useState("");
+  const [country, setCountry] = useState("");
+  const [ielts, setIelts] = useState("");
+  const [gpa, setGpa] = useState("");
+  const [ieltsErr, setIeltsErr] = useState(false);
+  const [gpaErr, setGpaErr] = useState(false);
+  const [results, setResults] = useState([]);
+
+  const totalSteps = 5;
+
+  const next = (nextStep) => {
+    setAnimKey(k => k + 1);
+    setStep(nextStep);
+  };
+
+  useEffect(() => {
+    if (tg) {
+      if (step > 0 && step < 5) {
+        tg.BackButton.show();
+        tg.BackButton.onClick(() => next(step - 1));
+      } else {
+        tg.BackButton.hide();
+      }
+    }
+  }, [step]);
+
+  const pickField = (f) => { setField(f); next(1); };
+  const pickCountry = (c) => { setCountry(c); next(2); };
+
+  const submitIelts = () => {
+    const v = parseFloat(ielts);
+    if (isNaN(v) || v < 0 || v > 9) { setIeltsErr(true); return; }
+    setIeltsErr(false);
+    next(3);
+  };
+
+  const submitGpa = () => {
+    const v = parseFloat(gpa);
+    if (isNaN(v) || v < 0 || v > 4) { setGpaErr(true); return; }
+    setGpaErr(false);
+    next(4);
+  };
+
+  const pickBudget = (b) => {
+    const res = filterUnis(field, country, parseFloat(ielts), parseFloat(gpa), b.value);
+    setResults(res);
+    if (tg) {
+      tg.sendData(JSON.stringify({
+        field, country,
+        ielts: parseFloat(ielts),
+        gpa: parseFloat(gpa),
+        budget: b.label,
+        count: res.length,
+        unis: res.map(u => u.name),
+      }));
+    }
+    next(5);
+  };
+
+  const restart = () => {
+    setField(""); setCountry(""); setIelts(""); setGpa("");
+    setIeltsErr(false); setGpaErr(false); setResults([]);
+    next(0);
+  };
+
+  const fieldObj = FIELDS.find(f => f.label === field);
+  const countryObj = COUNTRIES.find(c => c.label === country);
+
+  return (
+    <div className="app">
+      <div className="mesh" />
+
+      <div className="screen" key={animKey}>
+
+        {step > 0 && step < 5 && (
+          <div className="topbar">
+            <div className="back-btn" onClick={() => next(step - 1)}>←</div>
+            <div className="progress-row">
+              <div className="step-text">Шаг {step} из {totalSteps}</div>
+              <div className="bar-bg">
+                <div className="bar-fill" style={{ width: `${(step / totalSteps) * 100}%` }} />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {step === 0 && (
+          <>
+            <div style={{ textAlign: "center", padding: "28px 0 32px" }}>
+              <div style={{
+                width: 72, height: 72,
+                borderRadius: 22,
+                background: "linear-gradient(135deg, #3d5afe, #a855f7)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 32, margin: "0 auto 16px",
+                boxShadow: "0 0 40px #3d5afe44"
+              }}>🎓</div>
+              <div style={{
+                fontFamily: "'Unbounded', sans-serif",
+                fontSize: 22, fontWeight: 900,
+                background: "linear-gradient(135deg, #fff, #a0b8ff)",
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+                marginBottom: 6
+              }}>UniSearch</div>
+              <div style={{ color: "var(--tg-hint)", fontSize: 13, fontWeight: 300 }}>
+                Найди свой университет за&nbsp;минуту
+              </div>
+            </div>
+            <div className="question">Какое направление?</div>
+            <div className="question-sub">Выбери специальность для поступления</div>
+            <div className="grid">
+              {FIELDS.map(f => (
+                <div key={f.label} className={`chip ${field === f.label ? "sel" : ""}`} onClick={() => pickField(f.label)}>
+                  <div className="chip-icon">{f.icon}</div>
+                  <div className="chip-label">{f.label}</div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {step === 1 && (
+          <>
+            <div className="question">Страна обучения?</div>
+            <div className="question-sub">Можно выбрать «Любая» — покажем всё</div>
+            <div className="grid">
+              {COUNTRIES.map(c => (
+                <div key={c.label} className={`chip ${country === c.label ? "sel" : ""}`} onClick={() => pickCountry(c.label)}>
+                  <div className="chip-icon">{c.icon}</div>
+                  <div className="chip-label">{c.label}</div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {step === 2 && (
+          <>
+            <div className="question">Твой балл IELTS?</div>
+            <div className="question-sub">Введи свой результат от 0 до 9</div>
+            <div className="num-input-wrap">
+              <input
+                className={`num-input ${ieltsErr ? "err" : ""}`}
+                type="number"
+                inputMode="decimal"
+                step="0.5"
+                min="0"
+                max="9"
+                placeholder="6.5"
+                value={ielts}
+                onChange={e => { setIelts(e.target.value); setIeltsErr(false); }}
+                onKeyDown={e => e.key === "Enter" && submitIelts()}
+                autoFocus
+              />
+            </div>
+            {ieltsErr && <div className="error-msg">Введи число от 0 до 9 (например 6.5)</div>}
+            <div className="range-hint"><span>0.0 — минимум</span><span>9.0 — максимум</span></div>
+            <div className="spacer" />
+            <button className="cta-btn" onClick={submitIelts} disabled={!ielts}>
+              Продолжить →
+            </button>
+          </>
+        )}
+
+        {step === 3 && (
+          <>
+            <div className="question">Твой GPA?</div>
+            <div className="question-sub">Шкала 4.0 — стандарт большинства вузов</div>
+            <div className="num-input-wrap">
+              <input
+                className={`num-input ${gpaErr ? "err" : ""}`}
+                type="number"
+                inputMode="decimal"
+                step="0.1"
+                min="0"
+                max="4"
+                placeholder="3.5"
+                value={gpa}
+                onChange={e => { setGpa(e.target.value); setGpaErr(false); }}
+                onKeyDown={e => e.key === "Enter" && submitGpa()}
+                autoFocus
+              />
+            </div>
+            {gpaErr && <div className="error-msg">Введи число от 0 до 4</div>}
+            <div className="range-hint"><span>0.0 — минимум</span><span>4.0 — максимум</span></div>
+            <div className="spacer" />
+            <button className="cta-btn" onClick={submitGpa} disabled={!gpa}>
+              Продолжить →
+            </button>
+          </>
+        )}
+
+        {step === 4 && (
+          <>
+            <div className="question">Бюджет на обучение?</div>
+            <div className="question-sub">Стоимость в год (USD)</div>
+            <div className="grid single" style={{ gap: 8 }}>
+              {BUDGETS.map(b => (
+                <div key={b.label} className="chip-row" onClick={() => pickBudget(b)}>
+                  <div className="chip-icon">{b.icon}</div>
+                  <div className="chip-row-text">
+                    <div className="chip-label">{b.label}</div>
+                    <div className="chip-desc">{b.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {step === 5 && (
+          <>
+            <div className="results-hero">
+              <div className="results-num">{results.length}</div>
+              <div className="results-label">
+                {results.length === 1 ? "университет найден" :
+                 results.length >= 2 && results.length <= 4 ? "университета найдено" :
+                 "университетов найдено"}
+              </div>
+            </div>
+
+            <div className="filter-tags">
+              {fieldObj && <span className="ftag">{fieldObj.icon} {field}</span>}
+              {countryObj && <span className="ftag">{countryObj.icon} {country}</span>}
+              <span className="ftag">IELTS {ielts}</span>
+              <span className="ftag">GPA {gpa}</span>
+            </div>
+
+            {results.length === 0 ? (
+              <div className="empty">
+                <div className="empty-icon">😔</div>
+                <div className="empty-title">Ничего не нашлось</div>
+                <div className="empty-sub">Попробуй изменить параметры</div>
+              </div>
+            ) : (
+              results.slice(0, 10).map((u, i) => (
+                <div className="uni-card" key={u.name} style={{ animationDelay: `${i * 0.05}s` }}>
+                  <div className="uni-name">{u.name}</div>
+                  <div className="uni-badges">
+                    <span className="badge b-loc">📍 {u.city}, {u.country}</span>
+                    <span className="badge b-ielts">IELTS ≥ {u.ielts_min}</span>
+                    <span className="badge b-gpa">GPA ≥ {u.gpa_min}</span>
+                    {u.tuition_usd === 0
+                      ? <span className="badge b-free">🆓 Бесплатно</span>
+                      : <span className="badge b-cost">${u.tuition_usd.toLocaleString("ru")}/год</span>
+                    }
+                    {u.scholarship && <span className="badge b-grant">✦ Стипендия</span>}
+                  </div>
+                  <a className="uni-link" href={u.url} target="_blank" rel="noopener noreferrer">
+                    Сайт вуза ↗
+                  </a>
+                </div>
+              ))
+            )}
+
+            <button className="restart-btn" onClick={restart}>↩ Начать заново</button>
+          </>
+        )}
+
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
