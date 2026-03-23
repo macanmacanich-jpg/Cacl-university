@@ -5,8 +5,8 @@ from telegram.ext import (
     MessageHandler, ConversationHandler, ContextTypes, filters
 )
 
-BOT_TOKEN = "твой_токен"
-MINI_APP_URL = "https://твой-домен/index.html"
+BOT_TOKEN = "8765001637:AAHbuoz0Go1qv2UCbivbQi_8L4aFArdBFo8"
+MINI_APP_URL = "https://macanmacanich-jpg.github.io/Cacl-university/index.html"
 
 STEP_FIELD, STEP_COUNTRY, STEP_IELTS, STEP_GPA, STEP_BUDGET = range(5)
 
