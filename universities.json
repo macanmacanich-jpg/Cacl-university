@@ -3,10 +3,7 @@
     "name": "Карлов университет",
     "country": "Чехия",
     "city": "Прага",
-    "fields": [
-      "Медицина",
-      "Юриспруденция"
-    ],
+    "fields": ["Медицина", "Юриспруденция"],
     "ielts_min": 6.5,
     "gpa_min": 3.2,
     "tuition_usd": 0,
@@ -17,10 +14,7 @@
     "name": "Технический университет Мюнхена (TUM)",
     "country": "Германия",
     "city": "Мюнхен",
-    "fields": [
-      "Инженерия",
-      "Компьютерные науки"
-    ],
+    "fields": ["Инженерия", "Компьютерные науки"],
     "ielts_min": 6.5,
     "gpa_min": 3.5,
     "tuition_usd": 0,
@@ -31,11 +25,8 @@
     "name": "RWTH Aachen University",
     "country": "Германия",
     "city": "Аахен",
-    "fields": [
-      "Инженерия",
-      "Компьютерные науки"
-    ],
-    "ielts_min": 6,
+    "fields": ["Инженерия", "Компьютерные науки"],
+    "ielts_min": 6.0,
     "gpa_min": 3.3,
     "tuition_usd": 0,
     "scholarship": false,
@@ -45,10 +36,7 @@
     "name": "Будапештский технологический университет",
     "country": "Венгрия",
     "city": "Будапешт",
-    "fields": [
-      "Инженерия",
-      "Компьютерные науки"
-    ],
+    "fields": ["Инженерия", "Компьютерные науки"],
     "ielts_min": 5.5,
     "gpa_min": 2.8,
     "tuition_usd": 4000,
@@ -59,10 +47,7 @@
     "name": "Хельсинкский университет",
     "country": "Финляндия",
     "city": "Хельсинки",
-    "fields": [
-      "Компьютерные науки",
-      "Медицина"
-    ],
+    "fields": ["Компьютерные науки", "Медицина"],
     "ielts_min": 6.5,
     "gpa_min": 3.4,
     "tuition_usd": 0,
@@ -73,10 +58,7 @@
     "name": "Делфтский технический университет",
     "country": "Нидерланды",
     "city": "Делфт",
-    "fields": [
-      "Инженерия",
-      "Компьютерные науки"
-    ],
+    "fields": ["Инженерия", "Компьютерные науки"],
     "ielts_min": 6.5,
     "gpa_min": 3.5,
     "tuition_usd": 18000,
@@ -87,13 +69,9 @@
     "name": "Гронингенский университет",
     "country": "Нидерланды",
     "city": "Гронинген",
-    "fields": [
-      "Экономика",
-      "Бизнес",
-      "Юриспруденция"
-    ],
-    "ielts_min": 6,
-    "gpa_min": 3,
+    "fields": ["Экономика", "Бизнес", "Юриспруденция"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.0,
     "tuition_usd": 14000,
     "scholarship": true,
     "url": "https://www.rug.nl/"
@@ -102,13 +80,9 @@
     "name": "Венский университет",
     "country": "Австрия",
     "city": "Вена",
-    "fields": [
-      "Юриспруденция",
-      "Экономика",
-      "Компьютерные науки"
-    ],
-    "ielts_min": 6,
-    "gpa_min": 3,
+    "fields": ["Юриспруденция", "Экономика", "Компьютерные науки"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.0,
     "tuition_usd": 800,
     "scholarship": false,
     "url": "https://www.univie.ac.at/en/"
@@ -117,12 +91,7 @@
     "name": "Университет Торонто",
     "country": "Канада",
     "city": "Торонто",
-    "fields": [
-      "Компьютерные науки",
-      "Инженерия",
-      "Медицина",
-      "Бизнес"
-    ],
+    "fields": ["Компьютерные науки", "Инженерия", "Медицина", "Бизнес"],
     "ielts_min": 6.5,
     "gpa_min": 3.6,
     "tuition_usd": 45000,
@@ -133,10 +102,7 @@
     "name": "Университет Ватерлоо",
     "country": "Канада",
     "city": "Ватерлоо",
-    "fields": [
-      "Компьютерные науки",
-      "Инженерия"
-    ],
+    "fields": ["Компьютерные науки", "Инженерия"],
     "ielts_min": 6.5,
     "gpa_min": 3.5,
     "tuition_usd": 38000,
@@ -147,11 +113,7 @@
     "name": "Австралийский национальный университет",
     "country": "Австралия",
     "city": "Канберра",
-    "fields": [
-      "Компьютерные науки",
-      "Экономика",
-      "Юриспруденция"
-    ],
+    "fields": ["Компьютерные науки", "Экономика", "Юриспруденция"],
     "ielts_min": 6.5,
     "gpa_min": 3.4,
     "tuition_usd": 35000,
@@ -162,11 +124,7 @@
     "name": "Университет Этвёша Лоранда (ELTE)",
     "country": "Венгрия",
     "city": "Будапешт",
-    "fields": [
-      "Компьютерные науки",
-      "Юриспруденция",
-      "Экономика"
-    ],
+    "fields": ["Компьютерные науки", "Юриспруденция", "Экономика"],
     "ielts_min": 5.5,
     "gpa_min": 2.7,
     "tuition_usd": 5000,
@@ -177,13 +135,8 @@
     "name": "Университет Масарика",
     "country": "Чехия",
     "city": "Брно",
-    "fields": [
-      "Компьютерные науки",
-      "Медицина",
-      "Экономика",
-      "Юриспруденция"
-    ],
-    "ielts_min": 6,
+    "fields": ["Компьютерные науки", "Медицина", "Экономика", "Юриспруденция"],
+    "ielts_min": 6.0,
     "gpa_min": 2.9,
     "tuition_usd": 2000,
     "scholarship": false,
@@ -193,14 +146,418 @@
     "name": "FH Joanneum",
     "country": "Австрия",
     "city": "Грац",
-    "fields": [
-      "Инженерия",
-      "Компьютерные науки"
-    ],
+    "fields": ["Инженерия", "Компьютерные науки"],
     "ielts_min": 5.5,
     "gpa_min": 2.6,
     "tuition_usd": 1500,
     "scholarship": false,
     "url": "https://www.fh-joanneum.at/en/"
+  },
+  {
+    "name": "Берлинский свободный университет",
+    "country": "Германия",
+    "city": "Берлин",
+    "fields": ["Юриспруденция", "Экономика", "Медицина"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.2,
+    "tuition_usd": 0,
+    "scholarship": true,
+    "url": "https://www.fu-berlin.de/en/"
+  },
+  {
+    "name": "Гумбольдтский университет Берлина",
+    "country": "Германия",
+    "city": "Берлин",
+    "fields": ["Юриспруденция", "Экономика", "Компьютерные науки"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.3,
+    "tuition_usd": 0,
+    "scholarship": false,
+    "url": "https://www.hu-berlin.de/en"
+  },
+  {
+    "name": "Гейдельбергский университет",
+    "country": "Германия",
+    "city": "Гейдельберг",
+    "fields": ["Медицина", "Юриспруденция"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.5,
+    "tuition_usd": 0,
+    "scholarship": true,
+    "url": "https://www.uni-heidelberg.de/en"
+  },
+  {
+    "name": "Мюнхенский университет Людвига Максимилиана",
+    "country": "Германия",
+    "city": "Мюнхен",
+    "fields": ["Медицина", "Экономика", "Юриспруденция"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.4,
+    "tuition_usd": 0,
+    "scholarship": true,
+    "url": "https://www.lmu.de/en/"
+  },
+  {
+    "name": "Университет Гамбурга",
+    "country": "Германия",
+    "city": "Гамбург",
+    "fields": ["Бизнес", "Экономика", "Юриспруденция"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.0,
+    "tuition_usd": 0,
+    "scholarship": false,
+    "url": "https://www.uni-hamburg.de/en.html"
+  },
+  {
+    "name": "Штутгартский университет",
+    "country": "Германия",
+    "city": "Штутгарт",
+    "fields": ["Инженерия", "Компьютерные науки"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.2,
+    "tuition_usd": 0,
+    "scholarship": false,
+    "url": "https://www.uni-stuttgart.de/en/"
+  },
+  {
+    "name": "Амстердамский университет",
+    "country": "Нидерланды",
+    "city": "Амстердам",
+    "fields": ["Бизнес", "Экономика", "Юриспруденция"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.2,
+    "tuition_usd": 13000,
+    "scholarship": true,
+    "url": "https://www.uva.nl/en"
+  },
+  {
+    "name": "Эйндховенский технический университет",
+    "country": "Нидерланды",
+    "city": "Эйндховен",
+    "fields": ["Инженерия", "Компьютерные науки"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.3,
+    "tuition_usd": 16000,
+    "scholarship": true,
+    "url": "https://www.tue.nl/en/"
+  },
+  {
+    "name": "Лейденский университет",
+    "country": "Нидерланды",
+    "city": "Лейден",
+    "fields": ["Юриспруденция", "Медицина", "Экономика"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.3,
+    "tuition_usd": 15000,
+    "scholarship": true,
+    "url": "https://www.universiteitleiden.nl/en"
+  },
+  {
+    "name": "Технический университет Граца",
+    "country": "Австрия",
+    "city": "Грац",
+    "fields": ["Инженерия", "Компьютерные науки"],
+    "ielts_min": 6.0,
+    "gpa_min": 2.8,
+    "tuition_usd": 800,
+    "scholarship": false,
+    "url": "https://www.tugraz.at/en/home/"
+  },
+  {
+    "name": "Венский технический университет",
+    "country": "Австрия",
+    "city": "Вена",
+    "fields": ["Инженерия", "Компьютерные науки"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.0,
+    "tuition_usd": 800,
+    "scholarship": true,
+    "url": "https://www.tuwien.at/en/"
+  },
+  {
+    "name": "Университет Инсбрука",
+    "country": "Австрия",
+    "city": "Инсбрук",
+    "fields": ["Бизнес", "Юриспруденция", "Экономика"],
+    "ielts_min": 5.5,
+    "gpa_min": 2.8,
+    "tuition_usd": 800,
+    "scholarship": false,
+    "url": "https://www.uibk.ac.at/en/"
+  },
+  {
+    "name": "Университет Альто",
+    "country": "Финляндия",
+    "city": "Эспоо",
+    "fields": ["Инженерия", "Бизнес", "Компьютерные науки"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.3,
+    "tuition_usd": 0,
+    "scholarship": true,
+    "url": "https://www.aalto.fi/en"
+  },
+  {
+    "name": "Университет Тампере",
+    "country": "Финляндия",
+    "city": "Тампере",
+    "fields": ["Компьютерные науки", "Инженерия", "Медицина"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.0,
+    "tuition_usd": 0,
+    "scholarship": false,
+    "url": "https://www.tuni.fi/en"
+  },
+  {
+    "name": "Университет Турку",
+    "country": "Финляндия",
+    "city": "Турку",
+    "fields": ["Медицина", "Экономика", "Юриспруденция"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.0,
+    "tuition_usd": 0,
+    "scholarship": false,
+    "url": "https://www.utu.fi/en"
+  },
+  {
+    "name": "Университет Оулу",
+    "country": "Финляндия",
+    "city": "Оулу",
+    "fields": ["Инженерия", "Компьютерные науки", "Медицина"],
+    "ielts_min": 6.0,
+    "gpa_min": 2.9,
+    "tuition_usd": 0,
+    "scholarship": false,
+    "url": "https://www.oulu.fi/en"
+  },
+  {
+    "name": "Остравский университет",
+    "country": "Чехия",
+    "city": "Острава",
+    "fields": ["Медицина", "Компьютерные науки"],
+    "ielts_min": 5.5,
+    "gpa_min": 2.7,
+    "tuition_usd": 2500,
+    "scholarship": false,
+    "url": "https://www.osu.cz/en/"
+  },
+  {
+    "name": "Пражский экономический университет",
+    "country": "Чехия",
+    "city": "Прага",
+    "fields": ["Экономика", "Бизнес"],
+    "ielts_min": 6.0,
+    "gpa_min": 2.9,
+    "tuition_usd": 3000,
+    "scholarship": false,
+    "url": "https://www.vse.cz/english/"
+  },
+  {
+    "name": "Университет Печь",
+    "country": "Венгрия",
+    "city": "Печ",
+    "fields": ["Медицина", "Юриспруденция", "Бизнес"],
+    "ielts_min": 5.0,
+    "gpa_min": 2.6,
+    "tuition_usd": 6000,
+    "scholarship": false,
+    "url": "https://international.pte.hu/"
+  },
+  {
+    "name": "Университет Дебрецена",
+    "country": "Венгрия",
+    "city": "Дебрецен",
+    "fields": ["Медицина", "Инженерия"],
+    "ielts_min": 5.0,
+    "gpa_min": 2.5,
+    "tuition_usd": 7000,
+    "scholarship": true,
+    "url": "https://unideb.hu/en"
+  },
+  {
+    "name": "Университет Земмельвейса",
+    "country": "Венгрия",
+    "city": "Будапешт",
+    "fields": ["Медицина"],
+    "ielts_min": 5.5,
+    "gpa_min": 3.0,
+    "tuition_usd": 13000,
+    "scholarship": true,
+    "url": "https://semmelweis.hu/en/"
+  },
+  {
+    "name": "Университет Макгилла",
+    "country": "Канада",
+    "city": "Монреаль",
+    "fields": ["Медицина", "Юриспруденция", "Инженерия"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.7,
+    "tuition_usd": 42000,
+    "scholarship": true,
+    "url": "https://www.mcgill.ca/"
+  },
+  {
+    "name": "Университет Британской Колумбии",
+    "country": "Канада",
+    "city": "Ванкувер",
+    "fields": ["Компьютерные науки", "Бизнес", "Инженерия"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.5,
+    "tuition_usd": 40000,
+    "scholarship": true,
+    "url": "https://www.ubc.ca/"
+  },
+  {
+    "name": "Университет Альберты",
+    "country": "Канада",
+    "city": "Эдмонтон",
+    "fields": ["Инженерия", "Компьютерные науки", "Бизнес"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.3,
+    "tuition_usd": 30000,
+    "scholarship": true,
+    "url": "https://www.ualberta.ca/"
+  },
+  {
+    "name": "Университет Монаш",
+    "country": "Австралия",
+    "city": "Мельбурн",
+    "fields": ["Бизнес", "Инженерия", "Медицина"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.3,
+    "tuition_usd": 32000,
+    "scholarship": true,
+    "url": "https://www.monash.edu/"
+  },
+  {
+    "name": "Университет Мельбурна",
+    "country": "Австралия",
+    "city": "Мельбурн",
+    "fields": ["Юриспруденция", "Медицина", "Компьютерные науки"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.5,
+    "tuition_usd": 38000,
+    "scholarship": true,
+    "url": "https://www.unimelb.edu.au/"
+  },
+  {
+    "name": "Университет Сиднея",
+    "country": "Австралия",
+    "city": "Сидней",
+    "fields": ["Бизнес", "Юриспруденция", "Инженерия"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.4,
+    "tuition_usd": 36000,
+    "scholarship": true,
+    "url": "https://www.sydney.edu.au/"
+  },
+  {
+    "name": "Квинслендский университет",
+    "country": "Австралия",
+    "city": "Брисбен",
+    "fields": ["Компьютерные науки", "Инженерия", "Бизнес"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.2,
+    "tuition_usd": 33000,
+    "scholarship": true,
+    "url": "https://www.uq.edu.au/"
+  },
+  {
+    "name": "Университет Нового Южного Уэльса",
+    "country": "Австралия",
+    "city": "Сидней",
+    "fields": ["Инженерия", "Компьютерные науки", "Бизнес"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.3,
+    "tuition_usd": 35000,
+    "scholarship": false,
+    "url": "https://www.unsw.edu.au/"
+  },
+  {
+    "name": "Утрехтский университет",
+    "country": "Нидерланды",
+    "city": "Утрехт",
+    "fields": ["Медицина", "Юриспруденция", "Экономика"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.3,
+    "tuition_usd": 15000,
+    "scholarship": true,
+    "url": "https://www.uu.nl/en"
+  },
+  {
+    "name": "Свободный университет Амстердама",
+    "country": "Нидерланды",
+    "city": "Амстердам",
+    "fields": ["Бизнес", "Экономика", "Медицина"],
+    "ielts_min": 6.0,
+    "gpa_min": 3.0,
+    "tuition_usd": 13000,
+    "scholarship": false,
+    "url": "https://www.vu.nl/en"
+  },
+  {
+    "name": "Университет Йювяскюля",
+    "country": "Финляндия",
+    "city": "Йювяскюля",
+    "fields": ["Бизнес", "Компьютерные науки", "Экономика"],
+    "ielts_min": 6.0,
+    "gpa_min": 2.8,
+    "tuition_usd": 0,
+    "scholarship": false,
+    "url": "https://www.jyu.fi/en"
+  },
+  {
+    "name": "Пльзеньский университет",
+    "country": "Чехия",
+    "city": "Пльзень",
+    "fields": ["Юриспруденция", "Медицина"],
+    "ielts_min": 5.5,
+    "gpa_min": 2.7,
+    "tuition_usd": 2000,
+    "scholarship": false,
+    "url": "https://www.zcu.cz/en/"
+  },
+  {
+    "name": "Университет Мак-Мастера",
+    "country": "Канада",
+    "city": "Гамильтон",
+    "fields": ["Медицина", "Инженерия", "Бизнес"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.4,
+    "tuition_usd": 28000,
+    "scholarship": true,
+    "url": "https://www.mcmaster.ca/"
+  },
+  {
+    "name": "Университет Западного Онтарио",
+    "country": "Канада",
+    "city": "Лондон",
+    "fields": ["Бизнес", "Юриспруденция", "Медицина"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.3,
+    "tuition_usd": 29000,
+    "scholarship": true,
+    "url": "https://www.uwo.ca/"
+  },
+  {
+    "name": "Аделаидский университет",
+    "country": "Австралия",
+    "city": "Аделаида",
+    "fields": ["Инженерия", "Медицина", "Юриспруденция"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.2,
+    "tuition_usd": 31000,
+    "scholarship": true,
+    "url": "https://www.adelaide.edu.au/"
+  },
+  {
+    "name": "Венский экономический университет (WU)",
+    "country": "Австрия",
+    "city": "Вена",
+    "fields": ["Бизнес", "Экономика"],
+    "ielts_min": 6.5,
+    "gpa_min": 3.2,
+    "tuition_usd": 800,
+    "scholarship": false,
+    "url": "https://www.wu.ac.at/en/"
   }
 ]
